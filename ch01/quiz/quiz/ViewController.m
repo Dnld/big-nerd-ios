@@ -85,7 +85,7 @@
     // reset the answer label
     self.answerLabel.text = @"???";
     
-    NSLog(@"%@", self.answerLabel.text);
+//    NSLog(@"%@", self.answerLabel.text);
 }
 
 - (IBAction)showAndwer:(id)sender
@@ -96,7 +96,7 @@
     // display the answer in the answer label
     self.answerLabel.text = answer;
     
-    NSLog(@"%@", self.questionLabel.text);
+//    NSLog(@"%@", self.questionLabel.text);
 }
 
 @end
