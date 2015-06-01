@@ -22,26 +22,48 @@
 
 @implementation ViewController
 
-- (instancetype) initWithNibName:(NSString *)nibNameOrNil
-                          bundle:(NSBundle *)nibBundleOrNil
+//- (instancetype) initWithNibName:(NSString *)nibNameOrNil
+//                          bundle:(NSBundle *)nibBundleOrNil
+//{
+//    // call the init method implemented by the super class
+//    self = [super initWithNibName:nibNameOrNil
+//                           bundle:nibBundleOrNil];
+//    
+//    if (self) {
+//        // create two arrays filled with questions and answers
+//        self.questions = @[@"From what is cognac made?",
+//                           @"What is 7 + 7?",
+//                           @"What is the capital of Vermont?"];
+//        
+//        self.answers = @[@"Grapes",
+//                         @"14",
+//                         @"Montpelier"];
+//    }
+//    
+//    // return the address of the new object
+//    return self;
+//}
+
+// lazy instantiation of questions
+- (NSArray *)questions
 {
-    // call the init method implemented by the super class
-    self = [super initWithNibName:nibNameOrNil
-                           bundle:nibBundleOrNil];
-    
-    if (self) {
-        // create two arrays filled with questions and answers
-        self.questions = @[@"From what is cognac made?",
-                           @"What is 7 + 7?",
-                           @"What is the capital of Vermont?"];
-        
-        self.answers = @[@"Grapes",
-                         @"14",
-                         @"Montpelier"];
+    if (!_questions) {
+        _questions = @[@"From what is cognac made?",
+                       @"What is 7 + 7?",
+                       @"What is the capital of Vermont?"];
     }
-    
-    // return the address of the new object
-    return self;
+    return _questions;
+}
+
+// lazy instantiation of answers
+- (NSArray *)answers
+{
+    if (!_answers) {
+        _answers = @[@"Grapes",
+                     @"14",
+                     @"Montpelier"];
+    }
+    return _answers;
 }
 
 - (IBAction)showQuestion:(id)sender
@@ -62,6 +84,8 @@
     
     // reset the answer label
     self.answerLabel.text = @"???";
+    
+    NSLog(@"%@", self.answerLabel.text);
 }
 
 - (IBAction)showAndwer:(id)sender
@@ -71,6 +95,8 @@
     
     // display the answer in the answer label
     self.answerLabel.text = answer;
+    
+    NSLog(@"%@", self.questionLabel.text);
 }
 
 @end
