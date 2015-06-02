@@ -49,6 +49,12 @@
     
     // draws the line
     [path stroke];
+    
+    // add image to view
+    UIImage *logo = [UIImage imageNamed:@"logo.png"];
+    CGRect imageFrame = CGRectMake(bounds.size.width * 0.15, bounds.size.height * 0.15, bounds.size.width * 0.70, bounds.size.height * 0.70);
+    
+    [logo drawInRect:imageFrame];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
